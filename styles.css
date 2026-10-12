@@ -1,0 +1,467 @@
+/* =========================================================
+   Modern design system for the Dogovor/Invoice quiz
+   Palette: indigo + slate (business-modern)
+   Typography: Inter (Google Fonts)
+   ========================================================= */
+
+:root {
+    --primary:        #4F46E5;
+    --primary-hover:  #4338CA;
+    --primary-soft:   #EEF2FF;
+    --primary-ring:   rgba(79, 70, 229, 0.25);
+    --accent:         #10B981;
+    --accent-soft:   #ECFDF5;
+
+    --bg-gradient:    linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 60%, #E0E7FF 100%);
+
+    --text-primary:   #0F172A;
+    --text-secondary: #475569;
+    --text-muted:      #94A3B8;
+
+    --border:        #E2E8F0;
+    --border-strong: #CBD5E1;
+
+    --card-bg:       #FFFFFF;
+    --card-shadow:   0 4px 24px -2px rgba(15, 23, 42, 0.06),
+                     0 2px 6px  -1px rgba(15, 23, 42, 0.04);
+    --card-shadow-lg:0 20px 48px -8px rgba(79, 70, 229, 0.15),
+                     0 8px 16px -4px rgba(15, 23, 42, 0.08);
+
+    --radius-sm: 8px;
+    --radius:    12px;
+    --radius-lg: 16px;
+
+    --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    color: var(--text-primary);
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    padding: 32px 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   App header (above the card)
+   ========================================================= */
+
+.app-header {
+    max-width: 720px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.app-header .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 0.01em;
+}
+
+.app-header .logo svg {
+    width: 16px;
+    height: 16px;
+}
+
+.app-header h1 {
+    margin: 16px 0 6px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.app-header p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* =========================================================
+   Card container
+   ========================================================= */
+
+.quiz-container {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--card-shadow-lg);
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+#form-container { width: 100%; }
+
+/* =========================================================
+   Question block
+   ========================================================= */
+
+.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.35;
+}
+
+.question .question-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background: var(--primary-soft);
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.question .question-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* =========================================================
+   Modern select / inputs / textareas
+   ========================================================= */
+
+#answer-select,
+.form-field input,
+.form-field textarea,
+.form-field select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: #F8FAFC;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: var(--text-muted); }
+
+#answer-select,
+.form-field select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 18px;
+    padding-right: 42px;
+}
+
+#answer-select:focus,
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    outline: none;
+    background: #FFFFFF;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-ring);
+}
+
+#answer-select { margin-bottom: 18px; }
+
+/* Disabled options — gray + italic for «(скоро)» items */
+#answer-select option[disabled],
+.form-field select option[disabled] {
+    color: var(--text-muted);
+    font-style: italic;
+    background: #F1F5F9;
+}
+
+/* The placeholder option itself — make it slightly muted too */
+#answer-select option[value=""] {
+    color: var(--text-muted);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+/* =========================================================
+   Form fields and grid
+   ========================================================= */
+
+.form-field {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.005em;
+}
+
+#form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+}
+
+/* Full-width rows for textareas / emails / long inputs */
+.form-field:has(textarea),
+.form-field:has(input[type="email"]),
+.form-field:nth-last-child(1) {
+    grid-column: span 2;
+}
+
+#submit-button,
+#next-button {
+    grid-column: span 2;
+}
+
+/* Form section heading (rendered by JS) */
+.form-section-title {
+    grid-column: span 2;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding-top: 6px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-section-title .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--primary);
+}
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+
+#next-button,
+#submit-button,
+#generate-invoice,
+.btn,
+.btn-secondary {
+    padding: 13px 22px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: #FFFFFF;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    letter-spacing: 0.005em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#next-button:hover,
+#submit-button:hover,
+#generate-invoice:hover,
+.btn:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 8px 20px -4px var(--primary-ring);
+    transform: translateY(-1px);
+}
+
+#next-button:active,
+#submit-button:active,
+#generate-invoice:active,
+.btn:active { transform: translateY(0); }
+
+.btn-secondary {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1.5px solid var(--border);
+    box-shadow: var(--card-shadow);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-soft);
+    color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 8px 20px -4px var(--primary-ring);
+}
+
+.button-row {
+    grid-column: span 2;
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.button-row > * { flex: 1; }
+
+/* =========================================================
+   Invoice form specific
+   ========================================================= */
+
+#invoice-form-container { width: 100%; }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+}
+
+.form-grid .form-field:has(textarea),
+.form-grid .form-field:has(input[type="text"][name="basis"]) {
+    grid-column: span 2;
+}
+
+.form-single-column { margin-bottom: 20px; display: grid; gap: 14px; }
+
+.form-single-column .form-field:has(textarea),
+.form-single-column .form-field:has(input[type="text"]) { grid-column: auto; }
+
+#invoice-form-container #generate-invoice {
+    grid-column: span 2;
+    margin-top: 8px;
+}
+
+/* =========================================================
+   Toast notifications (replace alert)
+   ========================================================= */
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: var(--text-primary);
+    color: #FFFFFF;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.4);
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity var(--transition), transform var(--transition);
+    z-index: 9999;
+    max-width: 90vw;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.toast-error {
+    background: #DC2626;
+}
+
+.toast-success {
+    background: var(--accent);
+}
+
+/* =========================================================
+   Result container
+   ========================================================= */
+
+#result {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.app-footer {
+    max-width: 720px;
+    margin: 20px auto 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.app-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.app-footer a:hover { text-decoration: underline; }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 640px) {
+    body { padding: 16px 12px; }
+    .quiz-container { padding: 22px 18px; border-radius: var(--radius); }
+    #form-container,
+    .form-grid { grid-template-columns: 1fr; }
+    .form-field,
+    #submit-button,
+    #next-button,
+    .form-section-title,
+    .button-row,
+    .form-grid .form-field:has(textarea),
+    .form-grid .form-field:has(input[type="text"][name="basis"]) {
+        grid-column: span 1;
+    }
+    .button-row { flex-direction: column; }
+    .question { font-size: 1.1rem; }
+}
+
+/* Subtle entrance animation */
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.quiz-container,
+#question-container > *,
+#form-container > *,
+#invoice-form-container > * {
+    animation: fadeUp 360ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}

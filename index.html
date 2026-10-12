@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Договор — конструктор документов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.1/dist/pizzip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3.21.0/build/docxtemplater.min.js"></script>
+    <script src="templates.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <h1>Конструктор документов</h1>
+        <p>Ответьте на несколько вопросов — и скачайте готовый документ в формате Word</p>
+    </header>
+
+    <div class="quiz-container">
+        <div id="question-container"></div>
+        <div id="form-container" style="display: none;"></div>
+        <div id="result"></div>
+    </div>
+
+    <footer class="app-footer">
+        Документы формируются локально в браузере · данные никуда не отправляются
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счёт на оплату — конструктор</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.1/dist/pizzip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3.21.0/build/docxtemplater.min.js"></script>
+    <script src="templates.js"></script>
+    <script src="amount-in-words.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <span class="logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="2"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+                <line x1="7" y1="15" x2="13" y2="15"/>
+            </svg>
+            Счёт на оплату
+        </span>
+        <h1>Счёт на оплату</h1>
+        <p>Заполните реквизиты — на выходе получите готовый счёт в Word</p>
+    </header>
+
+    <div class="quiz-container">
+        <div id="invoice-form-container"></div>
+    </div>
+
+    <footer class="app-footer">
+        <a href="index.html">← Вернуться к конструктору договоров</a>
+    </footer>
+
+    <script src="invoice.js"></script>
+</body>
+</html>
